@@ -1,0 +1,17 @@
+## Command to list all installed packages
+#  (zcat $(ls -tr /var/log/apt/history.log*.gz); cat /var/log/apt/history.log) 2>/dev/null |
+#  egrep '^(Start-Date:|Commandline:)' |
+#  grep -v aptdaemon |
+#  egrep '^Commandline:'
+
+# Installed packages
+apt install -y chromium-browser
+apt-get install vim
+apt install zsh
+apt-get install curl
+apt-get install git
+apt-get install fonts-powerline
+# END of basic packages
+apt-get install python-pip
+# next add export PATH=~/.local/bin:$PATH to .zshrc
+pip install awscli --upgrade --user

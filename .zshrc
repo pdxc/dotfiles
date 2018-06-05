@@ -1,6 +1,12 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+# Add ~/.local/bin to the $PATH (required by python-pip)
+export PATH=~/.local/bin:$PATH
+
+# Set default editor to Vim
+export EDITOR='vim'
+
 # Path to your oh-my-zsh installation.
   export ZSH=/home/paul/.oh-my-zsh
 
