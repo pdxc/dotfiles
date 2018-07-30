@@ -1,22 +1,25 @@
 set tabstop=4
 set shiftwidth=4
 
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+:nnoremap <C-J> <C-W><C-J>
+:nnoremap <C-K> <C-W><C-K>
+:nnoremap <C-L> <C-W><C-L>
+:nnoremap <C-H> <C-W><C-H>
 
 " Solve issue with yanking not working for more than ~50 lines
-:set viminfo='100,<1000,s100,h
+set viminfo='100,<1000,s100,h
 
 call plug#begin('~/.vim/plugged')
 
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-surround'
 Plug 'raimondi/delimitmate'
+Plug 'prettier/vim-prettier'
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'vim-scripts/Better-Javascript-Indentation'
+Plug 'elzr/vim-json'
+Plug 'christoomey/vim-system-copy'
 
 call plug#end()
 
@@ -38,5 +41,9 @@ let g:javascript_conceal_function = 'f'
 " leafgarland/typescript-vim config
 " disable indenter since it doesn't seem to work properly (maybe when it's
 " combined with pangloss/vim-javascript)
-let g:typescript_indent_disable = 1
+" let g:typescript_indent_disable = 1
+
+" elzr/vim-json config
+" Don't conceal double quotes in json files (concealing makes it difficult to copy)
+let g:vim_json_syntax_conceal=0
 
