@@ -1,0 +1,34 @@
+# Install brew
+sudo /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+# Install node & npm
+brew install node
+
+# Install ember-cli
+npm install -g ember-cli
+
+# Install Watchman
+npm install -g watchman
+
+# Install bower
+npm install -g bower
+
+# Install yarn
+brew install yarn
+
+# Install oh-my-zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+# Install python
+brew install python
+
+# Install pip
+easy_install pip
+
+# Install Powerline fonts
+pip install --user powerline-status
+git clone https://github.com/powerline/fonts.git
+# then click `Install this font` in the preview window, per instructions at https://powerline.readthedocs.io/en/latest/installation/osx.html
+
+# Install pre-commit
+brew install pre-commit
