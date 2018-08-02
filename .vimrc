@@ -24,8 +24,8 @@ Plug 'christoomey/vim-system-copy'
 Plug 'tpope/vim-surround'
 Plug 'raimondi/delimitmate'
 Plug 'tpope/vim-sleuth'
+Plug 'airblade/vim-gitgutter'
 Plug 'w0rp/ale'
-" Plug 'prettier/vim-prettier'
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'vim-scripts/Better-Javascript-Indentation'
@@ -47,6 +47,7 @@ let g:airline_solarized_bg='dark'
 
 " scrooloose/nerdtree config
 map <leader>o :NERDTreeToggle<CR>
+map <leader>p :NERDTreeFind<CR>
 autocmd StdinReadPre * let s:std_in=1
 " open NERDTree automatically when vim starts up w/ no specified files
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
@@ -56,11 +57,13 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " w0rp/ale config
-let g:ale_fix_on_save = 1
+" let g:ale_fix_on_save = 1
+map <leader>f <Plug>(ale_fix)
 let g:ale_fixers = {
 \   'javascript': ['eslint', 'prettier'],
 \   'typescript': ['eslint', 'prettier'],
 \}
+let g:ale_javascript_prettier_options = '--print-width 80'
 let g:ale_javascript_prettier_use_local_config = 1
 
 " pangloss/vim-javascript config
