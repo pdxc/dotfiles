@@ -58,6 +58,7 @@ let g:airline_solarized_bg='dark'
 " scrooloose/nerdtree config
 noremap <leader>o :NERDTreeToggle<CR>
 noremap <leader>p :NERDTreeFind<CR>
+let NERDTreeShowHidden = 1
 autocmd StdinReadPre * let s:std_in=1
 " open NERDTree automatically when vim starts up w/ no specified files
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
@@ -70,8 +71,11 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_smartcase = 1
 nmap s <Plug>(easymotion-overwin-f)
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
+" temporary workaround since the above mapping doesn't work with
+" scrooloose/nerdtree since the NERDTree buffer is not modifiable
+nmap <Leader>s <Plug>(easymotion-overwin-f)
+nmap <Leader>j <Plug>(easymotion-j)
+nmap <Leader>k <Plug>(easymotion-k)
 
 " w0rp/ale config
 let g:ale_lint_on_text_changed = 0

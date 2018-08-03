@@ -1,34 +1,52 @@
-# Install brew
-sudo /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+## Command to list all installed packages
+#  (zcat $(ls -tr /var/log/apt/history.log*.gz); cat /var/log/apt/history.log) 2>/dev/null |
+#  egrep '^(Start-Date:|Commandline:)' |
+#  grep -v aptdaemon |
+#  egrep '^Commandline:'
 
-# Install node & npm
-brew install node
+# Installed packages:
 
-# Install ember-cli
-npm install -g ember-cli
+# chromium
+apt install -y chromium-browser
+# /chromium
 
-# Install Watchman
-npm install -g watchman
+# basic dev environment
+apt-get install -y vim
+apt install -y zsh
+apt-get install -y curl
+apt-get install -y git
+apt-get install -y fonts-powerline
+# /basic dev environment
 
-# Install bower
-npm install -g bower
+# node & npm
+apt-get install -y nodejs
+apt-get install -y npm
+# /node & npm
 
-# Install yarn
-brew install yarn
+# watchman
+apt-get install -y libssl-dev autoconf automake libtool pkg-config
+cd ~
+git clone https://github.com/facebook/watchman.git
+cd watchman
+git checkout v4.9.0
+./autogen.sh
+./configure
+make
+sudo make install
+# /watchman
 
-# Install oh-my-zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+# java jdk
+apt-get install -y default-jdk
+# /java jdk
 
-# Install python
-brew install python
+# aws cli
+apt-get install -y python-pip
+# next add export PATH=~/.local/bin:$PATH to .zshrc
+pip install awscli --upgrade --user
+# /aws cli
 
-# Install pip
-easy_install pip
+# better clipboard
+apt-get install -y xsel
+# /better clipboard
 
-# Install Powerline fonts
-pip install --user powerline-status
-git clone https://github.com/powerline/fonts.git
-# then click `Install this font` in the preview window, per instructions at https://powerline.readthedocs.io/en/latest/installation/osx.html
-
-# Install pre-commit
-brew install pre-commit
+# /Installed packages
