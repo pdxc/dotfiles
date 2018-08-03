@@ -8,7 +8,15 @@ set shiftwidth=4
 :nnoremap <C-L> <C-W><C-L>
 :nnoremap <C-H> <C-W><C-H>
 
+" Make vim scroll when cursor moves closer than 6 lines from top or bottom
 set scrolloff=6
+
+" Mute vim
+set noeb vb t_vb=
+
+" Reduce visual lag
+set ttyfast
+set lazyredraw
 
 " Solve issue with yanking not working for more than ~50 lines
 set viminfo='100,<1000,s100,h
@@ -24,6 +32,7 @@ Plug 'christoomey/vim-system-copy'
 Plug 'tpope/vim-surround'
 Plug 'raimondi/delimitmate'
 Plug 'tpope/vim-sleuth'
+Plug 'easymotion/vim-easymotion'
 Plug 'airblade/vim-gitgutter'
 Plug 'w0rp/ale'
 Plug 'pangloss/vim-javascript'
@@ -35,6 +44,7 @@ Plug 'joukevandermaas/vim-ember-hbs'
 call plug#end()
 
 " altercation/vim-colors-solarized
+let g:solarized_use16 = 1
 set background=dark
 colorscheme solarized
 
@@ -46,8 +56,8 @@ let g:airline_theme='solarized'
 let g:airline_solarized_bg='dark'
 
 " scrooloose/nerdtree config
-map <leader>o :NERDTreeToggle<CR>
-map <leader>p :NERDTreeFind<CR>
+noremap <leader>o :NERDTreeToggle<CR>
+noremap <leader>p :NERDTreeFind<CR>
 autocmd StdinReadPre * let s:std_in=1
 " open NERDTree automatically when vim starts up w/ no specified files
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
@@ -56,8 +66,17 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 " close vim if only window left open is a NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
+" easymotion/vim-easymotion config
+let g:EasyMotion_do_mapping = 0
+let g:EasyMotion_smartcase = 1
+nmap s <Plug>(easymotion-overwin-f)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+
 " w0rp/ale config
-" let g:ale_fix_on_save = 1
+let g:ale_lint_on_text_changed = 0
+let g:ale_lint_on_enter = 0
+let g:ale_lint_on_save = 1
 map <leader>f <Plug>(ale_fix)
 let g:ale_fixers = {
 \   'javascript': ['eslint', 'prettier'],
