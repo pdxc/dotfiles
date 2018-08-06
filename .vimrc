@@ -91,7 +91,7 @@ let g:ale_fixers = {
 \   'javascript': ['eslint', 'prettier'],
 \   'typescript': ['eslint', 'prettier'],
 \}
-let g:ale_javascript_prettier_options = '--print-width 80'
+let g:ale_javascript_prettier_options = '--print-width 80 --single-quote --trailing-comma "es5"'
 let g:ale_javascript_prettier_use_local_config = 1
 
 " pangloss/vim-javascript config

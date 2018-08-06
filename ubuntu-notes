@@ -6,6 +6,12 @@
 
 # Installed packages:
 
+# TODO: use current working directory instead of assuming that this git repo will be at ~/dotfiles
+ln -s ~/dotfiles/.bashrc ~/.bashrc
+ln -s ~/dotfiles/.zshrc ~/.zshrc
+ln -s ~/dotfiles/.vimrc ~/.vimrc
+ln -s ~/dotfiles/vim-snippets ~/.vim/snippets 
+
 # chromium
 apt install -y chromium-browser
 # /chromium
@@ -17,6 +23,9 @@ apt-get install -y curl
 apt-get install -y git
 apt-get install -y fonts-powerline
 # /basic dev environment
+
+# Install vim-plug
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # node & npm
 apt-get install -y nodejs

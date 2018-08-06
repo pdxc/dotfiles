@@ -1,5 +1,28 @@
+# TODO: use current working directory instead of assuming that this git repo will be at ~/dotfiles
+ln -s ~/dotfiles/.bashrc ~/.bashrc
+ln -s ~/dotfiles/.zshrc ~/.zshrc
+ln -s ~/dotfiles/.vimrc ~/.vimrc
+ln -s ~/dotfiles/vim-snippets ~/.vim/snippets 
+
 # Install brew
 sudo /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+# Install oh-my-zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+# Install python
+brew install python
+
+# Install pip
+easy_install pip
+
+# Install Powerline fonts
+pip install --user powerline-status
+git clone https://github.com/powerline/fonts.git
+# then click `Install this font` in the preview window, per instructions at https://powerline.readthedocs.io/en/latest/installation/osx.html
+
+# Install vim-plug
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # Install node & npm
 brew install node
@@ -15,20 +38,6 @@ npm install -g bower
 
 # Install yarn
 brew install yarn
-
-# Install oh-my-zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-
-# Install python
-brew install python
-
-# Install pip
-easy_install pip
-
-# Install Powerline fonts
-pip install --user powerline-status
-git clone https://github.com/powerline/fonts.git
-# then click `Install this font` in the preview window, per instructions at https://powerline.readthedocs.io/en/latest/installation/osx.html
 
 # Install pre-commit
 brew install pre-commit
