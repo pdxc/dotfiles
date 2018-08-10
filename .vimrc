@@ -34,7 +34,6 @@ Plug 'raimondi/delimitmate'
 Plug 'tpope/vim-sleuth'
 Plug 'easymotion/vim-easymotion'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'jeetsukumaran/vim-buffergator'
 Plug 'airblade/vim-gitgutter'
 Plug 'w0rp/ale'
 Plug 'ervandew/supertab'
@@ -50,6 +49,7 @@ Plug 'joukevandermaas/vim-ember-hbs'
 call plug#end()
 
 " altercation/vim-colors-solarized
+syntax enable
 let g:solarized_use16 = 1
 set background=dark
 colorscheme solarized
@@ -84,6 +84,7 @@ nmap <Leader>j <Plug>(easymotion-j)
 nmap <Leader>k <Plug>(easymotion-k)
 
 " ctrlpvim/ctrlp.vim config
+nmap <C-B> :CtrlPBuffer<CR>
 if executable('ag')
   " Use ag over grep
   set grepprg=ag\ --nogroup\ --nocolor
