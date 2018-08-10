@@ -35,6 +35,7 @@ Plug 'tpope/vim-sleuth'
 Plug 'easymotion/vim-easymotion'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'airblade/vim-gitgutter'
+Plug 'mileszs/ack.vim'
 Plug 'w0rp/ale'
 Plug 'ervandew/supertab'
 Plug 'MarcWeber/vim-addon-mw-utils'
@@ -94,6 +95,11 @@ if executable('ag')
 
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
+endif
+
+" mileszs/ack.vim config
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
 endif
 
 " w0rp/ale config
