@@ -44,6 +44,9 @@ make
 sudo make install
 # /watchman
 
+# ag (the_silver_surfer)
+apt-get install silversearcher-ag
+
 # java jdk
 apt-get install -y default-jdk
 # /java jdk

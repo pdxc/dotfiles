@@ -27,6 +27,9 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.c
 # Install node & npm
 brew install node
 
+# Install ag (the_silver_searcher)
+brew install the_silver_searcher
+
 # Install ember-cli
 npm install -g ember-cli
 

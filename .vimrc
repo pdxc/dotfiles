@@ -33,13 +33,14 @@ Plug 'tpope/vim-surround'
 Plug 'raimondi/delimitmate'
 Plug 'tpope/vim-sleuth'
 Plug 'easymotion/vim-easymotion'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'jeetsukumaran/vim-buffergator'
 Plug 'airblade/vim-gitgutter'
 Plug 'w0rp/ale'
 Plug 'ervandew/supertab'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
 Plug 'garbas/vim-snipmate'
-" Plug 'honza/vim-snippets'
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'vim-scripts/Better-Javascript-Indentation'
@@ -81,6 +82,18 @@ nmap s <Plug>(easymotion-overwin-f)
 nmap <Leader>s <Plug>(easymotion-overwin-f)
 nmap <Leader>j <Plug>(easymotion-j)
 nmap <Leader>k <Plug>(easymotion-k)
+
+" ctrlpvim/ctrlp.vim config
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+endif
 
 " w0rp/ale config
 let g:ale_lint_on_text_changed = 0
