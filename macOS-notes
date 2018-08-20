@@ -24,6 +24,20 @@ git clone https://github.com/powerline/fonts.git
 # Install vim-plug
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
+# Compile vim to add features (done to fix issues with vim easymotion plugin)
+# Must also add /usr/local/bin/vim to path in .zshrc
+# Check that vim points to /usr/local/bin/vim using `which vim` command
+cd ~
+# Clones into ~/vim (would it be better to put this somewhere else?)
+git clone https://github.com/vim/vim.git
+cd vim
+# I don't currently need additional feature besides +conceal (use `vim --version` to check options)
+# Would be better to find a way to only compile with that one additional feature
+./configure --with-features=huge
+make
+# Requires sudo
+make install
+
 # Install node & npm
 brew install node
 
@@ -45,16 +59,9 @@ brew install yarn
 # Install pre-commit
 brew install pre-commit
 
-# Compile vim to add features (done to fix issues with vim easymotion plugin)
-# Must also add /usr/local/bin/vim to path in .zshrc
-# Check that vim points to /usr/local/bin/vim using `which vim` command
-cd ~
-# Clones into ~/vim (would it be better to put this somewhere else?)
-git clone https://github.com/vim/vim.git
-cd vim
-# I don't currently need additional feature besides +conceal (use `vim --version` to check options)
-# Would be better to find a way to only compile with that one additional feature
-./configure --with-features=huge
-make
-# Requires sudo
-make install
+# Install postgres
+brew install postgresql@10
+
+# Install jq
+brew install jq
+

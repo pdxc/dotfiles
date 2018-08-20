@@ -8,8 +8,8 @@ set shiftwidth=4
 :nnoremap <C-L> <C-W><C-L>
 :nnoremap <C-H> <C-W><C-H>
 
-" Make vim scroll when cursor moves closer than 6 lines from top or bottom
-set scrolloff=6
+" Make vim scroll when cursor moves closer than 4 lines from top or bottom
+set scrolloff=4
 
 " Mute vim
 set noeb vb t_vb=
@@ -20,6 +20,10 @@ set lazyredraw
 
 " Solve issue with yanking not working for more than ~50 lines
 set viminfo='100,<1000,s100,h
+
+" Open all folds by default (some files have a ton of folds and are impossible
+" to read without opening all folds with zr
+autocmd VimEnter * execute "normal! zr"
 
 call plug#begin('~/.vim/plugged')
 
@@ -35,6 +39,8 @@ Plug 'tpope/vim-sleuth'
 Plug 'easymotion/vim-easymotion'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'airblade/vim-gitgutter'
+" Plug 'tpope/vim-fugitive'
+" Plug 'junegunn/gv.vim'
 Plug 'mileszs/ack.vim'
 Plug 'w0rp/ale'
 Plug 'ervandew/supertab'
@@ -67,8 +73,8 @@ noremap <leader>o :NERDTreeToggle<CR>
 noremap <leader>p :NERDTreeFind<CR>
 let NERDTreeShowHidden = 1
 autocmd StdinReadPre * let s:std_in=1
-" open NERDTree automatically when vim starts up w/ no specified files
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" " open NERDTree automatically when vim starts up w/ no specified files
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " open NERDTree automatically when vim starts up on opening a dir
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 " close vim if only window left open is a NERDTree
@@ -77,12 +83,10 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " easymotion/vim-easymotion config
 let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_smartcase = 1
-nmap s <Plug>(easymotion-overwin-f)
-" temporary workaround since the above mapping doesn't work with
-" scrooloose/nerdtree since the NERDTree buffer is not modifiable
+map <Leader>s <Plug>(easymotion-bd-f)
 nmap <Leader>s <Plug>(easymotion-overwin-f)
-nmap <Leader>j <Plug>(easymotion-j)
-nmap <Leader>k <Plug>(easymotion-k)
+map <Leader>l <Plug>(easymotion-bd-jk)
+nmap <Leader>l <Plug>(easymotion-overwin-line)
 
 " ctrlpvim/ctrlp.vim config
 nmap <C-B> :CtrlPBuffer<CR>
@@ -97,7 +101,11 @@ if executable('ag')
   let g:ctrlp_use_caching = 0
 endif
 
+" " tpope/vim-fugitive & junegunn/gv.vim config
+" noremap <leader>g :GV!<CR>
+
 " mileszs/ack.vim config
+cnoreabbrev Ack Ack!
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
