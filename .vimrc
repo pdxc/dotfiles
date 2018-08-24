@@ -8,6 +8,9 @@ set shiftwidth=2
 :nnoremap <C-L> <C-W><C-L>
 :nnoremap <C-H> <C-W><C-H>
 
+set splitbelow
+set splitright
+
 " Make vim scroll when cursor moves closer than 4 lines from top or bottom
 set scrolloff=4
 
@@ -42,15 +45,17 @@ Plug 'airblade/vim-gitgutter'
 " Plug 'tpope/vim-fugitive'
 " Plug 'junegunn/gv.vim'
 Plug 'mileszs/ack.vim'
+Plug 'garbas/vim-snipmate'
 Plug 'w0rp/ale'
 Plug 'ervandew/supertab'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
-Plug 'garbas/vim-snipmate'
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'vim-scripts/Better-Javascript-Indentation'
 Plug 'elzr/vim-json'
+Plug 'mhinz/vim-startify'
+Plug 'tpope/vim-obsession'
 Plug 'joukevandermaas/vim-ember-hbs'
 
 call plug#end()
@@ -85,6 +90,8 @@ let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_smartcase = 1
 map <Leader>s <Plug>(easymotion-bd-f)
 nmap <Leader>s <Plug>(easymotion-overwin-f)
+map <Leader>w <Plug>(easymotion-bd-w)
+nmap <Leader>w <Plug>(easymotion-overwin-w)
 map <Leader>l <Plug>(easymotion-bd-jk)
 nmap <Leader>l <Plug>(easymotion-overwin-line)
 
@@ -98,7 +105,7 @@ if executable('ag')
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 
   " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
+  " let g:ctrlp_use_caching = 0
 endif
 
 " " tpope/vim-fugitive & junegunn/gv.vim config
@@ -110,7 +117,12 @@ if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
 
+" garbas/vim-snipmate config
+" map <C-i> <Plug>snipMateNextOrTrigger
+
 " w0rp/ale config
+nmap <silent> <C-n> <Plug>(ale_previous_wrap)
+nmap <silent> <C-m> <Plug>(ale_next_wrap)
 let g:ale_lint_on_text_changed = 0
 let g:ale_lint_on_enter = 0
 let g:ale_lint_on_save = 1
