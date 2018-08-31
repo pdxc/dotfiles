@@ -56,6 +56,8 @@ Plug 'vim-scripts/Better-Javascript-Indentation'
 Plug 'elzr/vim-json'
 Plug 'mhinz/vim-startify'
 Plug 'tpope/vim-obsession'
+" Plug 'roman/golden-ratio'
+Plug 't9md/vim-choosewin'
 Plug 'joukevandermaas/vim-ember-hbs'
 
 call plug#end()
@@ -141,4 +143,8 @@ set conceallevel=1
 " elzr/vim-json config
 " Don't conceal double quotes in json files (concealing makes it difficult to copy)
 let g:vim_json_syntax_conceal=0
+
+" t9md/vim-choosewin config
+map <C-w> <Plug>(choosewin)
+let g:choosewin_overlay_enable = 1
 
