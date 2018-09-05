@@ -1,14 +1,22 @@
+if [[ -a ~/dotfiles/secrets/zshrc ]]; then
+  # echo "Sourcing .zshrc secrets from ~/dotfiles/secrets/zshrc"
+  source ~/dotfiles/secrets/zshrc
+  # source $(pwd)/secrets/zshrc
+fi
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Add ~/.local/bin to the $PATH (required by python-pip)
+export PATH=/usr/local/bin/vim:$PATH
 export PATH=~/.local/bin:$PATH
 
 # Set default editor to Vim
 export EDITOR='vim'
+alias vi="vim"
 
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/paul/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
