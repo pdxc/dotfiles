@@ -42,6 +42,7 @@ Plug 'tpope/vim-sleuth'
 Plug 'easymotion/vim-easymotion'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'airblade/vim-gitgutter'
+Plug 'kshenoy/vim-signature'
 " Plug 'tpope/vim-fugitive'
 " Plug 'junegunn/gv.vim'
 Plug 'mileszs/ack.vim'
@@ -54,10 +55,12 @@ Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'vim-scripts/Better-Javascript-Indentation'
 Plug 'elzr/vim-json'
-Plug 'mhinz/vim-startify'
+" Plug 'mhinz/vim-startify'
 Plug 'tpope/vim-obsession'
 " Plug 'roman/golden-ratio'
+Plug 'justincampbell/vim-eighties'
 Plug 't9md/vim-choosewin'
+Plug 'romgrk/winteract.vim'
 Plug 'joukevandermaas/vim-ember-hbs'
 
 call plug#end()
@@ -110,6 +113,9 @@ if executable('ag')
   " let g:ctrlp_use_caching = 0
 endif
 
+" kshenoy/vim-signature config
+" let g:SignatureMarkTextHL = 1
+
 " " tpope/vim-fugitive & junegunn/gv.vim config
 " noremap <leader>g :GV!<CR>
 
@@ -123,8 +129,8 @@ endif
 " map <C-i> <Plug>snipMateNextOrTrigger
 
 " w0rp/ale config
-nmap <silent> <C-n> <Plug>(ale_previous_wrap)
-nmap <silent> <C-m> <Plug>(ale_next_wrap)
+" nmap <silent> <C-n> <Plug>(ale_previous_wrap)
+" nmap <silent> <C-m> <Plug>(ale_next_wrap)
 let g:ale_lint_on_text_changed = 0
 let g:ale_lint_on_enter = 0
 let g:ale_lint_on_save = 1
@@ -145,6 +151,9 @@ set conceallevel=1
 let g:vim_json_syntax_conceal=0
 
 " t9md/vim-choosewin config
-map <C-w> <Plug>(choosewin)
+map <C-n> <Plug>(choosewin)
 let g:choosewin_overlay_enable = 1
+
+" romgrk/winteract.vim config
+map <C-w> :InteractiveWindow<CR>
 

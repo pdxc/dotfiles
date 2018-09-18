@@ -14,6 +14,7 @@ export PATH=~/.local/bin:$PATH
 # Set default editor to Vim
 export EDITOR='vim'
 alias vi="vim"
+alias v="vim"
 
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh

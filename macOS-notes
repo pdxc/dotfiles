@@ -65,3 +65,6 @@ brew install postgresql@10
 # Install jq
 brew install jq
 
+# Install java
+brew cask install java
+
