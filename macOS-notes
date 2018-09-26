@@ -40,6 +40,7 @@ make install
 
 # Install node & npm
 brew install node
+# brew install node@8
 
 # Install ag (the_silver_searcher)
 brew install the_silver_searcher
@@ -68,3 +69,11 @@ brew install jq
 # Install java
 brew cask install java
 
+# Install wscat (for communicating with websocket endpoints)
+npm install -g wscat
+
+# Install pyenv
+brew install pyenv
+
+# Install go
+brew install go

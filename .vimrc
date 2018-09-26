@@ -150,6 +150,9 @@ set conceallevel=1
 " Don't conceal double quotes in json files (concealing makes it difficult to copy)
 let g:vim_json_syntax_conceal=0
 
+" justincampbell/vim-eighties config
+let g:eighties_minimum_width=90
+
 " t9md/vim-choosewin config
 map <C-n> <Plug>(choosewin)
 let g:choosewin_overlay_enable = 1
