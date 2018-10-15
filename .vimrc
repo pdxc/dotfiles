@@ -66,6 +66,7 @@ Plug 'tpope/vim-obsession'
 Plug 'justincampbell/vim-eighties'
 Plug 't9md/vim-choosewin'
 Plug 'romgrk/winteract.vim'
+Plug 'tpope/vim-commentary'
 Plug 'joukevandermaas/vim-ember-hbs'
 
 call plug#end()
