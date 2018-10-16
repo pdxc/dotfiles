@@ -85,16 +85,16 @@ let g:airline_theme='solarized'
 let g:airline_solarized_bg='dark'
 
 " scrooloose/nerdtree config
-noremap <leader>o :NERDTreeToggle<CR>
-noremap <leader>p :NERDTreeFind<CR>
-let NERDTreeShowHidden = 1
-autocmd StdinReadPre * let s:std_in=1
-" " open NERDTree automatically when vim starts up w/ no specified files
-" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-" open NERDTree automatically when vim starts up on opening a dir
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
-" close vim if only window left open is a NERDTree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" noremap <leader>o :NERDTreeToggle<CR>
+" noremap <leader>p :NERDTreeFind<CR>
+" let NERDTreeShowHidden = 1
+" autocmd StdinReadPre * let s:std_in=1
+" " " open NERDTree automatically when vim starts up w/ no specified files
+" " autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" " open NERDTree automatically when vim starts up on opening a dir
+" autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+" " close vim if only window left open is a NERDTree
+" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " easymotion/vim-easymotion config
 let g:EasyMotion_do_mapping = 0
