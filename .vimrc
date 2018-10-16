@@ -32,6 +32,11 @@ autocmd VimEnter * execute "normal! zr"
 set undofile
 set undodir=~/.vim/undo
 
+" " Open netrw automatically when vim starts up w/ no specified files
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | execute "normal! -" | endif
+" Open netrw automatically when vim starts up on opening a dir
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | execute "normal! -" | endif
+
 call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-sensible'
