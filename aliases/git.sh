@@ -1,6 +1,7 @@
 #!/bin/sh
 
 function ogd() {
-	v -O $(git diff --name-only $1)
+	vim -O $(git diff --name-only $1)
 }
 alias ogd=ogd
+
