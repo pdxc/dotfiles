@@ -3,10 +3,19 @@ let mapleader=' '
 set tabstop=2
 set shiftwidth=2
 
+" Split navigation
 :nnoremap <C-J> <C-W><C-J>
 :nnoremap <C-K> <C-W><C-K>
 :nnoremap <C-L> <C-W><C-L>
 :nnoremap <C-H> <C-W><C-H>
+
+" Tab navigation
+" nnoremap <C-S-tab> :tabprevious<CR>
+" nnoremap <C-tab> :tabnext<CR>
+nnoremap <C-t> :tabnew<CR>
+" inoremap <C-S-tab> <Esc>:tabprevious<CR>i
+" inoremap <C-tab> <Esc>:tabnext<CR>i
+inoremap <C-t> <Esc>:tabnew<CR>
 
 set splitbelow
 set splitright
@@ -68,7 +77,8 @@ Plug 'elzr/vim-json'
 " Plug 'mhinz/vim-startify'
 Plug 'tpope/vim-obsession'
 " Plug 'roman/golden-ratio'
-Plug 'justincampbell/vim-eighties'
+" Plug 'justincampbell/vim-eighties'
+Plug 'auxiliary/vim-layout'
 Plug 't9md/vim-choosewin'
 Plug 'romgrk/winteract.vim'
 Plug 'tpope/vim-commentary'
@@ -161,13 +171,13 @@ set conceallevel=1
 " Don't conceal double quotes in json files (concealing makes it difficult to copy)
 let g:vim_json_syntax_conceal=0
 
-" justincampbell/vim-eighties config
-let g:eighties_minimum_width=90
+" " justincampbell/vim-eighties config
+" let g:eighties_minimum_width=90
 
 " t9md/vim-choosewin config
 map <C-n> <Plug>(choosewin)
 let g:choosewin_overlay_enable = 1
 
 " romgrk/winteract.vim config
-map <C-w> :InteractiveWindow<CR>
+map <C-q> :InteractiveWindow<CR>
 
