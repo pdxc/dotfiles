@@ -40,7 +40,9 @@ make install
 
 # Install node & npm
 brew install node
-# brew install node@8
+# Install nvm
+mkdir ~/.nvm
+brew install nvm
 
 # Install ag (the_silver_searcher)
 brew install the_silver_searcher
