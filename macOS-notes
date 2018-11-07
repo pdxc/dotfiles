@@ -79,3 +79,6 @@ brew install pyenv
 
 # Install go
 brew install go
+
+# Install stow (for dotfiles symlinking)
+brew install stow

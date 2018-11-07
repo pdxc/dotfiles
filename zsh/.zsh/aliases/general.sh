@@ -1,6 +1,6 @@
 #!/bin/sh
 
-alias aliases="vim ~/dotfiles/aliases"
+alias aliases="vim ~/.zsh/aliases"
 
 function of() {
 	vim $(ag -l $@)

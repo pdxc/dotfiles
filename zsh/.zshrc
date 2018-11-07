@@ -2,13 +2,12 @@
 export PATH="${ORIG_PATH:=$PATH}"
 export ORIG_PATH
 
-if [[ -a ~/dotfiles/secrets/zshrc ]]; then
-  # echo "Sourcing .zshrc secrets from ~/dotfiles/secrets/zshrc"
-  source ~/dotfiles/secrets/zshrc
-  # source $(pwd)/secrets/zshrc
+if [[ -a ~/.zsh/secrets/zshrc ]]; then
+  # echo "Sourcing .zshrc secrets from ~/.zsh/secrets/zshrc"
+  source ~/.zsh/secrets/zshrc
 fi
 
-for f in ~/dotfiles/aliases/*
+for f in ~/.zsh/aliases/*
 do
   source $f
 done
