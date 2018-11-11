@@ -38,6 +38,9 @@ apt-get install -y nodejs
 apt-get install -y npm
 # /node & npm
 
+# ag (the_silver_surfer)
+apt-get install silversearcher-ag
+
 # watchman
 apt-get install -y libssl-dev autoconf automake libtool pkg-config
 cd ~
@@ -49,9 +52,6 @@ git checkout v4.9.0
 make
 sudo make install
 # /watchman
-
-# ag (the_silver_surfer)
-apt-get install silversearcher-ag
 
 # java jdk
 apt-get install -y default-jdk
@@ -67,4 +67,10 @@ pip install awscli --upgrade --user
 apt-get install -y xsel
 # /better clipboard
 
+# haskell
+apt-get install g++ gcc libc6-dev libffi-dev libgmp-dev make xz-utils zlib1g-dev git gnupg
+
 # /Installed packages
+
+# config
+git config --global branch.autosetupmerge always

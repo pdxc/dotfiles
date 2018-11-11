@@ -12,10 +12,10 @@ set shiftwidth=2
 " Tab navigation
 " nnoremap <C-S-tab> :tabprevious<CR>
 " nnoremap <C-tab> :tabnext<CR>
-nnoremap <C-t> :tabnew<CR>
+nnoremap <C-t> :tabnew<CR>:Ex<CR>
 " inoremap <C-S-tab> <Esc>:tabprevious<CR>i
 " inoremap <C-tab> <Esc>:tabnext<CR>i
-inoremap <C-t> <Esc>:tabnew<CR>
+inoremap <C-t> <Esc>:tabnew<CR>:Ex<CR>
 
 set splitbelow
 set splitright
