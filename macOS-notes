@@ -1,11 +1,5 @@
-# TODO: use current working directory instead of assuming that this git repo will be at ~/dotfiles
-ln -s ~/dotfiles/.bashrc ~/.bashrc
-ln -s ~/dotfiles/.zshrc ~/.zshrc
-ln -s ~/dotfiles/.vimrc ~/.vimrc
-ln -s ~/dotfiles/vim-snippets ~/.vim/snippets 
-
 # Install brew
-sudo /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 # Install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
@@ -82,3 +76,6 @@ brew install go
 
 # Install stow (for dotfiles symlinking)
 brew install stow
+
+stow zsh
+stow vim
