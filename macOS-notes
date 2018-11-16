@@ -35,6 +35,9 @@ make
 # Requires sudo
 make install
 
+# Install tmux
+brew install tmux
+
 # Install node & npm
 brew install node
 # Install nvm
