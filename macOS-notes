@@ -82,3 +82,6 @@ brew install stow
 
 stow zsh
 stow vim
+
+# macOS config
+defaults write -g CGFontRenderingFontSmoothingDisabled -bool NO
