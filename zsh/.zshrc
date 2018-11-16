@@ -116,7 +116,7 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 # zsh-autosuggestions
-export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=10"
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=4"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
