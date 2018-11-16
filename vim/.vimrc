@@ -3,12 +3,6 @@ let mapleader=' '
 set tabstop=2
 set shiftwidth=2
 
-" Split navigation
-:nnoremap <C-J> <C-W><C-J>
-:nnoremap <C-K> <C-W><C-K>
-:nnoremap <C-L> <C-W><C-L>
-:nnoremap <C-H> <C-W><C-H>
-
 " Tab navigation
 " nnoremap <C-S-tab> :tabprevious<CR>
 " nnoremap <C-tab> :tabnext<CR>
@@ -81,6 +75,7 @@ Plug 'tpope/vim-obsession'
 Plug 'auxiliary/vim-layout'
 Plug 't9md/vim-choosewin'
 Plug 'romgrk/winteract.vim'
+Plug 'christoomey/vim-tmux-navigator'
 Plug 'tpope/vim-commentary'
 Plug 'joukevandermaas/vim-ember-hbs'
 
