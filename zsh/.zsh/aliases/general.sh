@@ -3,12 +3,12 @@
 alias aliases="vim ~/.zsh/aliases"
 
 function of() {
-	vim $(ag -l $@)
+	$EDITOR $(ag -l $@)
 }
 alias of=of
 
 function off() {
-	vim $(ag -lg $@)
+	$EDITOR $(ag -lg $@)
 }
 alias off=off
 

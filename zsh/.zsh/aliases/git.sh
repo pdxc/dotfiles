@@ -1,7 +1,12 @@
 #!/bin/sh
 
+gdno() {
+	git diff --name-only $@
+}
+alias gdno=gdno
+
 function ogd() {
-	vim $(git diff --name-only $@)
+	$EDITOR $(git diff --name-only $@)
 }
 alias ogd=ogd
 
