@@ -1,6 +1,6 @@
 #!/bin/sh
 
-gdno() {
+funciton gdno() {
 	git diff --name-only $@
 }
 alias gdno=gdno
