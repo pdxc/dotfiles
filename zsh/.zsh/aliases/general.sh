@@ -7,6 +7,12 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
+# Always ls after cd
+function c() {
+	cd $1 && ls -lah --color=auto
+}
+alias cd=c
+
 function of() {
 	$EDITOR $(ag -l $@)
 }
