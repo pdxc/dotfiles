@@ -40,14 +40,18 @@ load-nvmrc
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# Add ~/.local/bin to the $PATH (required by python-pip)
-export PATH=/usr/local/bin/vim:$PATH
-export PATH=~/.local/bin:$PATH
+# Force tmux to use 256 colors
+export TERM="screen-256color"
+alias tmux="tmux -2"
 
 # Set default editor to Vim
 export EDITOR='vim'
 alias vi="vim"
 alias v="vim"
+
+# Add ~/.local/bin to the $PATH (required by python-pip)
+export PATH=/usr/local/bin/vim:$PATH
+export PATH=~/.local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh

@@ -19,6 +19,7 @@ apt install -y chromium-browser
 # basic dev environment
 apt-get install -y vim
 apt install -y zsh
+apt install -y tmux
 apt-get install -y curl
 apt-get install -y git
 apt-get install -y fonts-powerline
@@ -70,7 +71,14 @@ apt-get install -y xsel
 # haskell
 apt-get install g++ gcc libc6-dev libffi-dev libgmp-dev make xz-utils zlib1g-dev git gnupg
 
+# stow (for dotfiles symlinking)
+apt-get install stow
+
 # /Installed packages
+
+stow tmux
+stow vim
+stow zsh
 
 # config
 git config --global branch.autosetupmerge always
