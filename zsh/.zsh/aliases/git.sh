@@ -1,12 +1,12 @@
 #!/bin/sh
 
 funciton gdno() {
-	git diff --name-only $@
+	git diff --relative --name-only $@
 }
 alias gdno=gdno
 
 function ogd() {
-	$EDITOR $(git diff --name-only $@)
+	$EDITOR $(git diff --relative --name-only $@)
 }
 alias ogd=ogd
 
