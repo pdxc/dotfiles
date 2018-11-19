@@ -88,3 +88,6 @@ stow vim
 
 # macOS config
 defaults write -g CGFontRenderingFontSmoothingDisabled -bool NO
+
+# Fix for invalid active developer path error when running git (https://apple.stackexchange.com/questions/254380/macos-mojave-invalid-active-developer-path)
+xcode-select --install
