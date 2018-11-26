@@ -9,7 +9,7 @@ alias .....="cd ../../../.."
 
 # Always ls after cd
 function c() {
-	cd $1 && ls -lah --color=auto
+	cd $1 && ls -lah
 }
 alias cd=c
 
