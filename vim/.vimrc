@@ -61,7 +61,7 @@ Plug 'junegunn/gv.vim'
 Plug 'mileszs/ack.vim'
 Plug 'garbas/vim-snipmate'
 Plug 'w0rp/ale'
-Plug 'ervandew/supertab'
+" Plug 'ervandew/supertab'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
 Plug 'pangloss/vim-javascript'
@@ -145,6 +145,10 @@ endif
 " map <C-i> <Plug>snipMateNextOrTrigger
 
 " w0rp/ale config
+" ale lsp completion
+let g:ale_completion_enabled = 1
+" fix from https://github.com/w0rp/ale/issues/1700
+set completeopt+=noinsert
 " nmap <silent> <C-n> <Plug>(ale_previous_wrap)
 " nmap <silent> <C-m> <Plug>(ale_next_wrap)
 let g:ale_lint_on_text_changed = 0
