@@ -45,7 +45,11 @@ export TERM="screen-256color"
 alias tmux="tmux -2"
 
 # Set default editor to Vim
-export EDITOR='vim'
+export EDITOR="vim"
+function e() {
+  vim -p $@
+}
+alias vim=e
 alias vi="vim"
 alias v="vim"
 

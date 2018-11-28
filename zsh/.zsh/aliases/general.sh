@@ -14,12 +14,12 @@ function c() {
 alias cd=c
 
 function of() {
-	$EDITOR $(ag -l $@)
+	e $(ag -l $@)
 }
 alias of=of
 
 function off() {
-	$EDITOR $(ag -lg $@)
+	e $(ag -lg $@)
 }
 alias off=off
 

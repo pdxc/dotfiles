@@ -6,7 +6,7 @@ funciton gdno() {
 alias gdno=gdno
 
 function ogd() {
-	$EDITOR $(git diff --relative --name-only $@)
+	e $(git diff --relative --name-only $@)
 }
 alias ogd=ogd
 
