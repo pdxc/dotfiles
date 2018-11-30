@@ -6,12 +6,6 @@
 
 # Installed packages:
 
-# TODO: use current working directory instead of assuming that this git repo will be at ~/dotfiles
-ln -s ~/dotfiles/.bashrc ~/.bashrc
-ln -s ~/dotfiles/.zshrc ~/.zshrc
-ln -s ~/dotfiles/.vimrc ~/.vimrc
-ln -s ~/dotfiles/vim-snippets ~/.vim/snippets 
-
 # chromium
 apt install -y chromium-browser
 # /chromium
@@ -86,5 +80,5 @@ stow tmux
 stow vim
 stow zsh
 
-# config
+# git config
 git config --global branch.autosetupmerge always
