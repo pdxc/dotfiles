@@ -32,6 +32,8 @@ set viminfo='100,<1000,s100,h
 autocmd VimEnter * execute "normal! zr"
 
 " Maintain undo history between sessions
+" If persistent undo isn't working it might be because ~/.vim/undo hasn't been
+" created yet
 set undofile
 set undodir=~/.vim/undo
 

@@ -35,6 +35,9 @@ make
 # Requires sudo
 make install
 
+# add undo dir for persistent vim undo
+mkdir ~/.vim/undo
+
 # Install tmux
 brew install tmux
 
