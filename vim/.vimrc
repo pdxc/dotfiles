@@ -40,6 +40,11 @@ set undodir=~/.vim/undo
 " Open netrw automatically when vim starts up on opening a dir
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | execute "normal! -" | endif
 
+" let the omnicomplete menu to appear even if there's only one match
+set completeopt=menuone
+" select omnicomplete menu selection with <Enter>
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
 call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-sensible'
@@ -59,9 +64,10 @@ Plug 'kshenoy/vim-signature'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim'
 Plug 'mileszs/ack.vim'
-Plug 'garbas/vim-snipmate'
+Plug 'vim-scripts/AutoComplPop'
 Plug 'w0rp/ale'
-" Plug 'ervandew/supertab'
+Plug 'ervandew/supertab'
+Plug 'garbas/vim-snipmate'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
 Plug 'pangloss/vim-javascript'
