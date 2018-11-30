@@ -89,6 +89,7 @@ call plug#end()
 
 " altercation/vim-colors-solarized
 syntax enable
+set t_Co=256
 let g:solarized_use16 = 1
 set background=dark
 colorscheme solarized
