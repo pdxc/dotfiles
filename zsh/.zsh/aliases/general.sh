@@ -1,6 +1,9 @@
 #!/bin/sh
 
 alias aliases="vim ~/.zsh/aliases"
+alias vrc="vim ~/.vimrc"
+alias zrc="vim ~/.zshrc"
+alias trc="vim ~/.tmux.conf"
 
 alias ..="cd .."
 alias ...="cd ../.."
