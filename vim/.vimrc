@@ -42,23 +42,12 @@ set undodir=~/.vim/undo
 " Open netrw automatically when vim starts up on opening a dir
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | execute "normal! -" | endif
 
-" omnicomplete
+" " omnicomplete
+" enable omnicomplete
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
-" reduce max height of omnicomplete menu (otherwise tends to take up the
-" whole screen when the matching text isn't very long)
-set pumheight=5
-" let the omnicomplete menu to appear even if there's only one match
-set completeopt=menuone
 " select omnicomplete menu selection with <Enter>
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-" try to open the omnicomplete menu after each [a-z|A-Z] keystroke
-function! OpenCompletion()
-  if !pumvisible() && ((v:char >= 'a' && v:char <= 'z') || (v:char >= 'A' && v:char <= 'Z'))
-    call feedkeys("\<C-x>\<C-o>", "n")
-  endif
-endfunction
-autocmd InsertCharPre * call OpenCompletion()
 
 call plug#begin('~/.vim/plugged')
 
@@ -78,9 +67,8 @@ Plug 'kshenoy/vim-signature'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim'
 Plug 'mileszs/ack.vim'
-Plug 'othree/AutoComplPop'
+Plug 'maxboisvert/vim-simple-complete'
 Plug 'w0rp/ale'
-Plug 'ervandew/supertab'
 " Plug 'garbas/vim-snipmate'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
@@ -149,14 +137,20 @@ if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
 
-" garbas/vim-snipmate config
-" map <C-i> <Plug>snipMateNextOrTrigger
+" maxboisvert/vim-simple-complete config
+let g:vsc_type_complete_length = 1
+let g:vsc_completion_command = "\<C-P>"
+let g:vsc_reverse_completion_command = "\<C-N>"
 
 " w0rp/ale config
 " ale lsp completion
 let g:ale_completion_enabled = 1
 " fix from https://github.com/w0rp/ale/issues/1700
-set completeopt+=noinsert
+" set completeopt+=noinsert
+
+" garbas/vim-snipmate config
+" map <C-i> <Plug>snipMateNextOrTrigger
+
 " nmap <silent> <C-n> <Plug>(ale_previous_wrap)
 " nmap <silent> <C-m> <Plug>(ale_next_wrap)
 let g:ale_lint_on_text_changed = 0
