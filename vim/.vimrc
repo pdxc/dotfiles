@@ -42,10 +42,23 @@ set undodir=~/.vim/undo
 " Open netrw automatically when vim starts up on opening a dir
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | execute "normal! -" | endif
 
+" omnicomplete
+filetype plugin on
+set omnifunc=syntaxcomplete#Complete
+" reduce max height of omnicomplete menu (otherwise tends to take up the
+" whole screen when the matching text isn't very long)
+set pumheight=5
 " let the omnicomplete menu to appear even if there's only one match
 set completeopt=menuone
 " select omnicomplete menu selection with <Enter>
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" try to open the omnicomplete menu after each [a-z|A-Z] keystroke
+function! OpenCompletion()
+  if !pumvisible() && ((v:char >= 'a' && v:char <= 'z') || (v:char >= 'A' && v:char <= 'Z'))
+    call feedkeys("\<C-x>\<C-o>", "n")
+  endif
+endfunction
+autocmd InsertCharPre * call OpenCompletion()
 
 call plug#begin('~/.vim/plugged')
 
@@ -65,10 +78,10 @@ Plug 'kshenoy/vim-signature'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim'
 Plug 'mileszs/ack.vim'
-Plug 'vim-scripts/AutoComplPop'
+Plug 'othree/AutoComplPop'
 Plug 'w0rp/ale'
 Plug 'ervandew/supertab'
-Plug 'garbas/vim-snipmate'
+" Plug 'garbas/vim-snipmate'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
 Plug 'pangloss/vim-javascript'
