@@ -1,5 +1,8 @@
 let mapleader=' '
 
+" Show vim keystrokes on the right side of the bottom status bar
+set showcmd
+
 set tabstop=2
 set shiftwidth=2
 
