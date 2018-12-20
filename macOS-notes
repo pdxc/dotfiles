@@ -82,6 +82,11 @@ brew install pyenv
 
 # Install go
 brew install go
+brew install dep
+brew install glide
+# $GOPATH/src is where all projects should live
+mkdir $GOPATH
+mkdir -p $GOPATH $GOPATH/src $GOPATH/pkg $GOPATH/bin
 
 # Install stow (for dotfiles symlinking)
 brew install stow
