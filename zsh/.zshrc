@@ -47,11 +47,9 @@ alias tmux="tmux -2"
 # Set default editor to Vim
 export EDITOR="vim"
 function e() {
-  vim -p $@
+  echo $@ && vim -p $@
 }
-alias vim=e
-alias vi="vim"
-alias v="vim"
+alias v=e
 
 # Add ~/.local/bin to the $PATH (required by python-pip)
 export PATH=/usr/local/bin/vim:$PATH
