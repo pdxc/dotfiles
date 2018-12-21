@@ -84,6 +84,7 @@ Plug 't9md/vim-choosewin'
 Plug 'romgrk/winteract.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tpope/vim-commentary'
+Plug 'ntpeters/vim-better-whitespace'
 Plug 'joukevandermaas/vim-ember-hbs'
 
 call plug#end()
@@ -181,4 +182,7 @@ let g:choosewin_overlay_enable = 1
 
 " romgrk/winteract.vim config
 map <C-q> :InteractiveWindow<CR>
+
+" ntpeters/vim-better-whitespace config
+let g:strip_whitespace_on_save=1
 
