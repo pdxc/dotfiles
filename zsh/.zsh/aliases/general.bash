@@ -7,11 +7,6 @@ alias vrc="vim ~/.vimrc"
 alias zrc="vim ~/.zshrc"
 alias trc="vim ~/.tmux.conf"
 
-alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias .....="cd ../../../.."
-
 # Always ls after cd
 c() {
 	cd $1 && ls -lah
