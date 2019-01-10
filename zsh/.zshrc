@@ -123,6 +123,7 @@ source $ZSH/oh-my-zsh.sh
 
 # zsh-autosuggestions
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=4"
+bindkey '^n' autosuggest-accept
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
