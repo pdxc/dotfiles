@@ -14,29 +14,19 @@ c() {
 alias cd=c
 
 of() {
-	## Alternate version that opens a tab for each matching line
-	#local command=""
-	#local separator=""
-	#for i in $(ag --column ${@} | cut -d ':' -f 1-3); do
-	#	local f=$(echo ${i} | cut -d ':' -f 1)
-	#	local l=$(echo ${i} | cut -d ':' -f 2)
-	#	local c=$(echo ${i} | cut -d ':' -f 3)
-	#	command="${command}${separator}:e ${f}|:let @/="\""${@}"\""|:set hls|:call cursor(${l},${c})"
-	#	separator="|:tabnew |"
-	#done
-	#echo ${command}
-	#vim -p -c "${command}"
-
 	local to_print=""
-	local command=""
-	local separator=""
+	local command_first_half=""
+	local command_second_half=""
+	local first_half_separator=""
+	local second_half_separator="|:tabnext |"
 	for i in $(ag -l $@); do
 		to_print="${to_print} ${i}"
-		command="${command}${separator}:e ${i}|:execute "\""normal\! G\$/${@}\\<cr>"\"
-		separator="|:tabnew |"
+		command_first_half="${command_first_half}${first_half_separator}:e ${i}"
+		first_half_separator="|:tabnew |"
+		command_second_half="${command_second_half}${second_half_separator}:execute "\""normal\! G\$/\\\c${1}\\<cr>"\"
 	done
 	echo ${to_print}
-	vim -p -c "${command}"
+	vim -p -c "${command_first_half}${command_second_half}|:tabnext"
 }
 
 off() {
