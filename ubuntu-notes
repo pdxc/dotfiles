@@ -31,9 +31,6 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.c
 # add undo dir for persistent vim undo
 mkdir ~/.vim/undo
 
-# Install tmux plugin manager
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-
 # node & npm
 apt-get install -y nodejs
 apt-get install -y npm
