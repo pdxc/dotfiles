@@ -126,6 +126,10 @@ if executable('ag')
   " let g:ctrlp_use_caching = 0
 endif
 
+" airblade/vim-gitgutter config
+let g:gitgutter_grep='ag'
+let g:gitgutter_max_signs = 1000
+
 " kshenoy/vim-signature config
 " let g:SignatureMarkTextHL = 1
 
