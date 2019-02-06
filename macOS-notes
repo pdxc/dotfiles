@@ -88,6 +88,10 @@ brew install glide
 mkdir $GOPATH
 mkdir -p $GOPATH $GOPATH/src $GOPATH/pkg $GOPATH/bin
 
+# Install language servers for vim
+npm install -g typescript typescript-language-server
+go get -u github.com/sourcegraph/go-langserver
+
 # Install stow (for dotfiles symlinking)
 brew install stow
 

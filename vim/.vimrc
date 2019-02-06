@@ -48,7 +48,6 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 " " omnicomplete
 " enable omnicomplete
 filetype plugin on
-set omnifunc=syntaxcomplete#Complete
 " select omnicomplete menu selection with <Enter>
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
@@ -70,8 +69,12 @@ Plug 'kshenoy/vim-signature'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim'
 Plug 'mileszs/ack.vim'
-Plug 'maxboisvert/vim-simple-complete'
-Plug 'w0rp/ale'
+
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+
 " Plug 'garbas/vim-snipmate'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
@@ -89,7 +92,24 @@ Plug 'joukevandermaas/vim-ember-hbs'
 
 call plug#end()
 
-" altercation/vim-colors-solarized
+let g:lsp_async_completion = 1
+set omnifunc=lsp#complete
+if executable('typescript-language-server')
+  au User lsp_setup call lsp#register_server({
+    \ 'name': 'javascript-typescript-language-server',
+    \ 'cmd': {server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
+    \ 'whitelist': ['javascript', 'typescript'],
+  \ })
+endif
+if executable('go-langserver')
+  au User lsp_setup call lsp#register_server({
+    \ 'name': 'go-langserver',
+    \ 'cmd': {server_info->['go-langserver', '-gocodecompletion']},
+    \ 'whitelist': ['go'],
+  \ })
+endif
+
+" altercation/vim-colors-solarized config
 syntax enable
 set t_Co=256
 let g:solarized_use16 = 1
@@ -153,13 +173,10 @@ let g:ale_completion_enabled = 1
 " fix from https://github.com/w0rp/ale/issues/1700
 " set completeopt+=noinsert
 
-" garbas/vim-snipmate config
-" map <C-i> <Plug>snipMateNextOrTrigger
-
 " nmap <silent> <C-n> <Plug>(ale_previous_wrap)
 " nmap <silent> <C-m> <Plug>(ale_next_wrap)
-let g:ale_lint_on_text_changed = 0
-let g:ale_lint_on_enter = 0
+let g:ale_lint_on_text_changed = 1
+let g:ale_lint_on_enter = 1
 let g:ale_lint_on_save = 1
 map <leader>f <Plug>(ale_fix)
 let g:ale_fixers = {
