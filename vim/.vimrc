@@ -45,60 +45,88 @@ set undodir=~/.vim/undo
 " Open netrw automatically when vim starts up on opening a dir
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | execute "normal! -" | endif
 
-" " omnicomplete
-" enable omnicomplete
-filetype plugin on
-" select omnicomplete menu selection with <Enter>
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-
 call plug#begin('~/.vim/plugged')
 
+" Default settings
 Plug 'tpope/vim-sensible'
+
+" Appearance and formatting
 Plug 'altercation/vim-colors-solarized'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'tpope/vim-vinegar'
-Plug 'christoomey/vim-system-copy'
+Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
 Plug 'raimondi/delimitmate'
-Plug 'tpope/vim-sleuth'
-Plug 'easymotion/vim-easymotion'
-Plug 'ctrlpvim/ctrlp.vim'
+Plug 'christoomey/vim-system-copy'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'tpope/vim-commentary'
+Plug 'timakro/vim-searchant'
+
+" Statusline
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+" Sign column
 Plug 'airblade/vim-gitgutter'
 Plug 'kshenoy/vim-signature'
-Plug 'tpope/vim-fugitive'
-Plug 'junegunn/gv.vim'
-Plug 'mileszs/ack.vim'
 
+" Language server and autocomplete
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
-" Plug 'garbas/vim-snipmate'
-Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'tomtom/tlib_vim'
+" Navigation
+Plug 'easymotion/vim-easymotion'
+Plug 'tpope/vim-vinegar'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'mileszs/ack.vim'
+Plug 't9md/vim-choosewin'
+Plug 'christoomey/vim-tmux-navigator'
+
+" Git
+Plug 'tpope/vim-fugitive'
+Plug 'junegunn/gv.vim'
+
+" Sessions
+Plug 'tpope/vim-obsession'
+
+" Language specific
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'vim-scripts/Better-Javascript-Indentation'
 Plug 'elzr/vim-json'
-Plug 'tpope/vim-obsession'
-Plug 't9md/vim-choosewin'
-Plug 'romgrk/winteract.vim'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'tpope/vim-commentary'
-Plug 'ntpeters/vim-better-whitespace'
 Plug 'joukevandermaas/vim-ember-hbs'
 
 call plug#end()
 
+" altercation/vim-colors-solarized config
+syntax enable
+set t_Co=256
+let g:solarized_use16 = 1
+set background=dark
+colorscheme solarized
+
+" ntpeters/vim-better-whitespace config
+let g:strip_whitespace_on_save=1
+
+" vim-airline/vim-airline config
+let g:airline_powerline_fonts = 1
+
+" vim-airline/vim-airline-themes config
+let g:airline_theme='solarized'
+let g:airline_solarized_bg='dark'
+
+" airblade/vim-gitgutter config
+let g:gitgutter_grep='ag'
+let g:gitgutter_max_signs = 1000
+
+" prabirshrestha/vim-lsp config
 let g:lsp_async_completion = 1
 set omnifunc=lsp#complete
 if executable('typescript-language-server')
   au User lsp_setup call lsp#register_server({
     \ 'name': 'javascript-typescript-language-server',
     \ 'cmd': {server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
-    \ 'whitelist': ['javascript', 'typescript'],
+    \ 'whitelist': ['javascript', 'javascript.jsx', 'typescript', 'typescript.tsx'],
   \ })
 endif
 if executable('go-langserver')
@@ -109,29 +137,11 @@ if executable('go-langserver')
   \ })
 endif
 
-" altercation/vim-colors-solarized config
-syntax enable
-set t_Co=256
-let g:solarized_use16 = 1
-set background=dark
-colorscheme solarized
-
-" vim-airline/vim-airline config
-let g:airline_powerline_fonts = 1
-
-" vim-airline/vim-airline-themes config
-let g:airline_theme='solarized'
-let g:airline_solarized_bg='dark'
-
 " easymotion/vim-easymotion config
 let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_smartcase = 1
 map <Leader>s <Plug>(easymotion-bd-f)
 nmap <Leader>s <Plug>(easymotion-overwin-f)
-map <Leader>w <Plug>(easymotion-bd-w)
-nmap <Leader>w <Plug>(easymotion-overwin-w)
-map <Leader>l <Plug>(easymotion-bd-jk)
-nmap <Leader>l <Plug>(easymotion-overwin-line)
 
 " ctrlpvim/ctrlp.vim config
 nmap <C-B> :CtrlPBuffer<CR>
@@ -146,64 +156,21 @@ if executable('ag')
   " let g:ctrlp_use_caching = 0
 endif
 
-" airblade/vim-gitgutter config
-let g:gitgutter_grep='ag'
-let g:gitgutter_max_signs = 1000
-
-" kshenoy/vim-signature config
-" let g:SignatureMarkTextHL = 1
-
-" " tpope/vim-fugitive & junegunn/gv.vim config
-" noremap <leader>g :GV!<CR>
-
 " mileszs/ack.vim config
 cnoreabbrev Ack Ack!
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
 
-" maxboisvert/vim-simple-complete config
-let g:vsc_type_complete_length = 1
-let g:vsc_completion_command = "\<C-P>"
-let g:vsc_reverse_completion_command = "\<C-N>"
-
-" w0rp/ale config
-" ale lsp completion
-let g:ale_completion_enabled = 1
-" fix from https://github.com/w0rp/ale/issues/1700
-" set completeopt+=noinsert
-
-" nmap <silent> <C-n> <Plug>(ale_previous_wrap)
-" nmap <silent> <C-m> <Plug>(ale_next_wrap)
-let g:ale_lint_on_text_changed = 1
-let g:ale_lint_on_enter = 1
-let g:ale_lint_on_save = 1
-map <leader>f <Plug>(ale_fix)
-let g:ale_fixers = {
-\   'javascript': ['eslint', 'prettier'],
-\   'typescript': ['eslint', 'prettier'],
-\}
-let g:ale_javascript_prettier_options = '--print-width 80 --single-quote --trailing-comma "es5"'
-let g:ale_javascript_prettier_use_local_config = 1
+" t9md/vim-choosewin config
+map <C-n> <Plug>(choosewin)
+let g:choosewin_overlay_enable = 1
 
 " pangloss/vim-javascript config
-" Enable concealing within VIM (used for pangloss/vim-javascript)
+" Enable concealing within vim
 set conceallevel=1
 
 " elzr/vim-json config
 " Don't conceal double quotes in json files (concealing makes it difficult to copy)
 let g:vim_json_syntax_conceal=0
-
-" " justincampbell/vim-eighties config
-" let g:eighties_minimum_width=90
-
-" t9md/vim-choosewin config
-map <C-n> <Plug>(choosewin)
-let g:choosewin_overlay_enable = 1
-
-" romgrk/winteract.vim config
-map <C-q> :InteractiveWindow<CR>
-
-" ntpeters/vim-better-whitespace config
-let g:strip_whitespace_on_save=1
 
