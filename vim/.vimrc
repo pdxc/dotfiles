@@ -82,6 +82,9 @@ Plug 'mileszs/ack.vim'
 Plug 't9md/vim-choosewin'
 Plug 'christoomey/vim-tmux-navigator'
 
+" Snippets (see ~/.vim/minisnip)
+Plug 'joereynolds/vim-minisnip'
+
 " Git
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim'
