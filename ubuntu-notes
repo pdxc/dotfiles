@@ -71,6 +71,20 @@ apt-get install g++ gcc libc6-dev libffi-dev libgmp-dev make xz-utils zlib1g-dev
 # stow (for dotfiles symlinking)
 apt-get install stow
 
+# go
+curl -O https://storage.googleapis.com/golang/go1.11.5.linux-amd64.tar.gz
+tar -xvf go1.11.5.linux-amd64.tar.gz
+rm go1.11.5.linux-amd64.tar.gz
+mv go /usr/local/go
+chown -R root:root /usr/local/go
+# $GOPATH/src is where all projects should live
+mkdir $GOPATH
+mkdir -p $GOPATH $GOPATH/src $GOPATH/pkg $GOPATH/bin
+
+# language servers for vim
+npm install -g typescript typescript-language-server
+go get -u github.com/sourcegraph/go-langserver
+
 # /Installed packages
 
 stow tmux
