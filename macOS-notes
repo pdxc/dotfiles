@@ -37,6 +37,8 @@ make install
 
 # add undo dir for persistent vim undo
 mkdir ~/.vim/undo
+# add swp dir to avoid swp file clutter
+mkdir -p ~/.vim/swp
 
 # Install tmux
 brew install tmux

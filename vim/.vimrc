@@ -39,6 +39,8 @@ autocmd VimEnter * execute "normal! zr"
 " created yet
 set undofile
 set undodir=~/.vim/undo
+" Put swp files in their own directory
+set directory=$HOME/.vim/swp//
 
 " " Open netrw automatically when vim starts up w/ no specified files
 " autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | execute "normal! -" | endif
