@@ -59,6 +59,7 @@ Plug 'raimondi/delimitmate'
 Plug 'christoomey/vim-system-copy'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'tpope/vim-commentary'
+Plug 'fholgado/minibufexpl.vim'
 Plug 'timakro/vim-searchant'
 
 " Statusline
@@ -111,6 +112,10 @@ colorscheme solarized
 
 " ntpeters/vim-better-whitespace config
 let g:strip_whitespace_on_save=1
+
+" fholgado/minibufexpl.vim config
+let g:miniBufExplSplitBelow = 0
+let g:miniBufExplBuffersNeeded = 1
 
 " vim-airline/vim-airline config
 let g:airline_powerline_fonts = 1
