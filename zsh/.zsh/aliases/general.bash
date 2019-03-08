@@ -13,6 +13,10 @@ c() {
 }
 alias cd=c
 
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
+alias fzf="fzf -m --bind ctrl-a:toggle-all"
+alias pe=path-extractor
+
 of() {
 	local to_print=""
 	local command_first_half=""

@@ -90,6 +90,12 @@ brew install glide
 mkdir $GOPATH
 mkdir -p $GOPATH $GOPATH/src $GOPATH/pkg $GOPATH/bin
 
+# Install fzf and pe
+#brew install fzf
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install --all
+go get github.com/edi9999/path-extractor/path-extractor
+
 # Install language servers for vim
 npm install -g typescript typescript-language-server
 go get -u github.com/sourcegraph/go-langserver
