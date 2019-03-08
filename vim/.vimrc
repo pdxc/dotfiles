@@ -1,5 +1,3 @@
-let mapleader=' '
-
 " Show vim keystrokes on the right side of the bottom status bar
 set showcmd
 
@@ -145,8 +143,12 @@ endif
 " easymotion/vim-easymotion config
 let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_smartcase = 1
-map <Leader>s <Plug>(easymotion-bd-f)
-nmap <Leader>s <Plug>(easymotion-overwin-f)
+map <Space> <Plug>(easymotion-bd-f)
+nmap <Space> <Plug>(easymotion-overwin-f)
+hi link EasyMotionTarget Search
+hi link EasyMotionTarget2First Search
+hi link EasyMotionTarget2Second Search
+hi link EasyMotionShade Comment
 
 " ctrlpvim/ctrlp.vim config
 nmap <C-B> :CtrlPBuffer<CR>
