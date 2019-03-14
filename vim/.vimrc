@@ -79,9 +79,8 @@ Plug 'prabirshrestha/asyncomplete-lsp.vim'
 " Navigation
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-vinegar'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'mileszs/ack.vim'
-Plug 't9md/vim-choosewin'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 Plug 'christoomey/vim-tmux-navigator'
 
 " Snippets (see ~/.vim/minisnip)
@@ -156,28 +155,20 @@ hi link EasyMotionTarget2First Search
 hi link EasyMotionTarget2Second Search
 hi link EasyMotionShade Comment
 
-" ctrlpvim/ctrlp.vim config
-nmap <C-B> :CtrlPBuffer<CR>
-if executable('ag')
-  " Use ag over grep
-  set grepprg=ag\ --nogroup\ --nocolor
-
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-
-  " ag is fast enough that CtrlP doesn't need to cache
-  " let g:ctrlp_use_caching = 0
-endif
-
-" mileszs/ack.vim config
-cnoreabbrev Ack Ack!
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
-endif
-
-" t9md/vim-choosewin config
-map <C-n> <Plug>(choosewin)
-let g:choosewin_overlay_enable = 1
+" junegunn/fzf config
+let $FZF_DEFAULT_OPTS = '--bind ctrl-a:toggle-all'
+function! s:build_quickfix_list(lines)
+  call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
+  copen
+  cc
+endfunction
+let g:fzf_action = {
+  \ 'ctrl-c': function('s:build_quickfix_list'),
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
+nnoremap <Leader>s :Ag<Space>
+vnoremap <Leader>s y:Ag <C-R>"<CR>
 
 " pangloss/vim-javascript config
 " Enable concealing within vim
