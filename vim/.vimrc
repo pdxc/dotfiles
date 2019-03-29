@@ -10,8 +10,14 @@ nnoremap ]t :tabnext<CR>
 nnoremap <C-t> :tabnew<CR>:Ex<CR>
 
 " Buffer navigation
-nnoremap [b :bp<CR>
-nnoremap ]b :bn<CR>
+nnoremap [b :MBEbp<CR>
+nnoremap ]b :MBEbn<CR>
+
+" Quickfix navigation
+nnoremap [c :cp<CR>
+nnoremap ]c :cn<CR>
+nnoremap [C :cfirst<CR>
+nnoremap ]C :clast<CR>
 
 set splitbelow
 set splitright
@@ -126,6 +132,8 @@ let g:airline_solarized_bg='dark'
 " airblade/vim-gitgutter config
 let g:gitgutter_grep='ag'
 let g:gitgutter_max_signs = 1000
+nmap [h <Plug>GitGutterPrevHunk
+nmap ]h <Plug>GitGutterNextHunk
 
 " prabirshrestha/vim-lsp config
 let g:lsp_async_completion = 1
