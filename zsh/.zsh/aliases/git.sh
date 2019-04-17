@@ -12,10 +12,10 @@ function fp() {
 	fi
 }
 
+# Conflicted files
 function gdc() {
 	git diff --relative --name-only --diff-filter=U
 }
-
 function ogdc() {
 	e $(git diff --relative --name-only --diff-filter=U)
 }
@@ -25,12 +25,16 @@ function gdno() {
 }
 
 function ogd() {
-	if [ $(git rev-parse -q --verify $1) ]; then
-		echo $(git diff --relative --name-only $@)
-		# https://github.com/airblade/vim-gitgutter "you can force vim-gitgutter to update its signs across all visible buffers with :GitGutterAll"
-		vim -p $(git diff --relative --name-only $@) -c ":let g:gitgutter_diff_base='$1'|:GitGutterAll"
-	else
-		e $(git diff --relative --name-only $@)
+	local files=(${$(git diff --relative --name-only $@ | fzf)//\/ })
+
+	if [ -n "$files" ]; then
+		echo $files
+		if [ $(git rev-parse -q --verify $1) ]; then
+			# https://github.com/airblade/vim-gitgutter "you can force vim-gitgutter to update its signs across all visible buffers with :GitGutterAll"
+			vim ${files[*]} -c ":let g:gitgutter_diff_base='$1'|:sleep 900m |:GitGutterAll"
+		else
+			vim ${files[*]}
+		fi
 	fi
 }
 
