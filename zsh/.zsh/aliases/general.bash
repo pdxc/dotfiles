@@ -34,6 +34,20 @@ of() {
 }
 
 off() {
-	e $(ag -lg $@)
+	local candidates
+	local files
+
+	if [ "$#" -eq 0 ]; then
+		files=(${$(fzf)//\/ })
+	else
+		candidates=$(ag -lg $@)
+		if [ -n "$candidates" ]; then
+			files=(${$(echo "${candidates}" | fzf)//\/ })
+		fi
+	fi
+	if [ -n "$files" ]; then
+		echo $files
+		vim ${files[*]}
+	fi
 }
 
