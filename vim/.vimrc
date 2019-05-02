@@ -77,10 +77,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'kshenoy/vim-signature'
 
 " Language server and autocomplete
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp'
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 
 " Navigation
 Plug 'easymotion/vim-easymotion'
@@ -135,23 +132,6 @@ let g:gitgutter_max_signs = 1000
 nmap [h <Plug>GitGutterPrevHunk
 nmap ]h <Plug>GitGutterNextHunk
 
-" prabirshrestha/vim-lsp config
-let g:lsp_async_completion = 1
-set omnifunc=lsp#complete
-if executable('typescript-language-server')
-  au User lsp_setup call lsp#register_server({
-    \ 'name': 'javascript-typescript-language-server',
-    \ 'cmd': {server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
-    \ 'whitelist': ['javascript', 'javascript.jsx', 'typescript', 'typescript.tsx'],
-  \ })
-endif
-if executable('go-langserver')
-  au User lsp_setup call lsp#register_server({
-    \ 'name': 'go-langserver',
-    \ 'cmd': {server_info->['go-langserver', '-gocodecompletion']},
-    \ 'whitelist': ['go'],
-  \ })
-endif
 
 " easymotion/vim-easymotion config
 let g:EasyMotion_do_mapping = 0
