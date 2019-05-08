@@ -66,6 +66,7 @@ Plug 'christoomey/vim-system-copy'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'tpope/vim-commentary'
 Plug 'fholgado/minibufexpl.vim'
+Plug 'yggdroot/indentline'
 Plug 'timakro/vim-searchant'
 
 " Statusline
@@ -125,6 +126,11 @@ let g:airline_powerline_fonts = 1
 " vim-airline/vim-airline-themes config
 let g:airline_theme='solarized'
 let g:airline_solarized_bg='dark'
+
+" yggdroot/indentline config
+let g:indentLine_char = '▏'
+let g:indentLine_setColors = 0
+autocmd VimEnter,Colorscheme * :hi Conceal ctermfg=black
 
 " airblade/vim-gitgutter config
 let g:gitgutter_grep='ag'
