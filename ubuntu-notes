@@ -11,13 +11,27 @@ apt install -y chromium-browser
 # /chromium
 
 # basic dev environment
-apt-get install -y vim
 apt install -y zsh
 apt install -y tmux
 apt-get install -y curl
 apt-get install -y git
 apt-get install -y fonts-powerline
 # /basic dev environment
+
+# Compile vim to add features (done to fix issues with vim easymotion plugin) and to satisfy vim >= 8.1 for coc.nvim
+# Must also add /usr/local/bin/vim to path in .zshrc
+# Check that vim points to /usr/local/bin/vim using `which vim` command
+cd ~
+# Clones into ~/vim (would it be better to put this somewhere else?)
+git clone https://github.com/vim/vim.git
+cd vim
+# I don't currently need additional feature besides +conceal (use `vim --version` to check options)
+# Would be better to find a way to only compile with that one additional feature
+apt-get install ncurses-dev
+./configure --with-features=huge --enable-pythoninterp --enable-python3interp
+make
+# Requires sudo
+make install
 
 # Install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
@@ -82,6 +96,9 @@ chown -R root:root /usr/local/go
 # $GOPATH/src is where all projects should live
 mkdir $GOPATH
 mkdir -p $GOPATH $GOPATH/src $GOPATH/pkg $GOPATH/bin
+
+# yarn (for coc.nvim)
+curl -o- -L https://yarnpkg.com/install.sh | bash
 
 # language servers for vim
 npm install -g typescript typescript-language-server

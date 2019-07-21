@@ -138,7 +138,6 @@ let g:gitgutter_max_signs = 1000
 nmap [h <Plug>GitGutterPrevHunk
 nmap ]h <Plug>GitGutterNextHunk
 
-
 " easymotion/vim-easymotion config
 let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_smartcase = 1
