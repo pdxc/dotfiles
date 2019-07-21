@@ -97,6 +97,19 @@ chown -R root:root /usr/local/go
 mkdir $GOPATH
 mkdir -p $GOPATH $GOPATH/src $GOPATH/pkg $GOPATH/bin
 
+# protobuf
+curl -OL https://github.com/google/protobuf/releases/download/v3.7.1/protoc-3.7.1-linux-x86_64.zip
+unzip protoc-*-linux-x86_64.zip -d protoc3
+# Move protoc to /usr/local/bin/
+sudo mv protoc3/bin/* /usr/local/bin/
+# Move protoc3/include to /usr/local/include/
+sudo mv protoc3/include/* /usr/local/include/
+# Optional: change owner
+sudo chown paul /usr/local/bin/protoc
+sudo chown -R paul /usr/local/include/google
+go get -u google.golang.org/grpc
+go get -u github.com/golang/protobuf/protoc-gen-go
+
 # yarn (for coc.nvim)
 curl -o- -L https://yarnpkg.com/install.sh | bash
 
@@ -109,6 +122,20 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 go get github.com/edi9999/path-extractor/path-extractor
 
+# postgresql
+apt install postgresql
+# start postgres
+# sudo service postgresql start
+# connect to postgres
+# sudo -i -u postgres
+
+# anki
+# First download anki from https://apps.ankiweb.net/
+tar xjf ~/Downloads/anki-2.1.11-amd64.tar.bz2
+cd ~/Downloads/anki-2.1.11-linux-amd64
+make install
+popd
+
 # /Installed packages
 
 stow tmux
@@ -117,3 +144,21 @@ stow zsh
 
 # git config
 git config --global branch.autosetupmerge always
+
+# bluetooth
+wget https://memcpy.io/files/2017-10-28/BCM-0a5c-6410.hcd
+sudo cp BCM-0a5c-6410.hcd /lib/firmware/brcm/
+sudo chmod 0644 /lib/firmware/brcm/BCM-0a5c-6410.hcd
+
+# react native
+npm install -g create-react-native-app expo-cli
+# during dev turn off firewall
+# ufw disable
+# after dev turn firewall back on
+# ufw enable
+
+# redis
+wget http://download.redis.io/releases/redis-5.0.5.tar.gz
+tar xzf redis-5.0.5.tar.gz
+cd redis-5.0.5
+make
