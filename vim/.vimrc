@@ -19,6 +19,9 @@ nnoremap ]c :cn<CR>
 nnoremap [C :cfirst<CR>
 nnoremap ]C :clast<CR>
 
+set number
+set wrap
+
 set splitbelow
 set splitright
 
@@ -65,7 +68,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-sensible'
 
 " Appearance and formatting
-Plug 'altercation/vim-colors-solarized'
+Plug 'lifepillar/vim-solarized8'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
 Plug 'raimondi/delimitmate'
@@ -73,7 +76,8 @@ Plug 'christoomey/vim-system-copy'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'tpope/vim-commentary'
 Plug 'fholgado/minibufexpl.vim'
-Plug 'yggdroot/indentline'
+" Plug 'yggdroot/indentline'
+Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'timakro/vim-searchant'
 
 " Statusline
@@ -113,19 +117,42 @@ Plug 'joukevandermaas/vim-ember-hbs'
 
 call plug#end()
 
-" altercation/vim-colors-solarized config
-syntax enable
-set t_Co=256
-let g:solarized_use16 = 1
+" lifepillar/vim-solarized8 config
+set termguicolors
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 set background=dark
-colorscheme solarized
+colorscheme solarized8_flat
+" Gets rid of lines between splits (trailing space is intentional)
+set fillchars+=vert:\ ,
+" Gets rid of dashes in folds and diffs
+set fillchars=fold:\ ,
+set fillchars+=diff:\ ,
+" Fix highlighting of left cols
+highlight LineNr     guibg=#073642
+highlight FoldColumn guibg=#073642
+highlight Folded     guibg=#073642
+" Improve diff highlighting
+highlight DiffAdd    guibg=#1B412B guifg=NONE
+highlight DiffChange guibg=#52561D guifg=NONE
+highlight DiffDelete guibg=#582E33 guifg=NONE
+highlight DiffText   guibg=#083E55 guifg=NONE
 
 " ntpeters/vim-better-whitespace config
 let g:strip_whitespace_on_save=1
+let g:strip_whitespace_confirm=0
+let g:better_whitespace_guicolor='#073642'
+let g:better_whitespace_filetypes_blacklist=['diff', 'gitcommit', 'unite', 'qf', 'help', 'markdown', 'vim']
 
 " fholgado/minibufexpl.vim config
 let g:miniBufExplSplitBelow = 0
 let g:miniBufExplBuffersNeeded = 1
+hi MBENormal               guifg=#586e75 guibg=#002b36
+hi MBEChanged              guifg=#ffffff guibg=#cb4b16
+hi MBEVisibleNormal        guifg=#93a1a1 guibg=#002b36
+hi MBEVisibleChanged       guifg=#ffffff guibg=#b58900
+hi MBEVisibleActiveNormal  guifg=#268bd2 guibg=#002b36
+hi MBEVisibleActiveChanged guifg=#b58900 guibg=#002b36
 
 " vim-airline/vim-airline config
 let g:airline_powerline_fonts = 1
@@ -136,14 +163,26 @@ let g:airline_solarized_bg='dark'
 
 " yggdroot/indentline config
 let g:indentLine_char = '▏'
-let g:indentLine_setColors = 0
-autocmd VimEnter,Colorscheme * :hi Conceal ctermfg=black
+let g:indentLine_color_gui = '#073642'
+
+" junegunn/rainbow_parentheses.vim config
+autocmd VimEnter * RainbowParentheses
+
+" timakro/vim-searchant config
+highlight SearchCurrent guifg=#002b36 guibg=#268bd2
 
 " airblade/vim-gitgutter config
 let g:gitgutter_grep='ag'
 let g:gitgutter_max_signs = 1000
 nmap [h <Plug>GitGutterPrevHunk
 nmap ]h <Plug>GitGutterNextHunk
+" Fixes issue where signs are slow to update
+set updatetime=100
+highlight SignColumn            guibg=#073642
+highlight GitGutterAdd          guifg=#859900 guibg=#073642
+highlight GitGutterChange       guifg=#b58900 guibg=#073642
+highlight GitGutterDelete       guifg=#dc322f guibg=#073642
+highlight GitGutterChangeDelete guifg=#cb4b16 guibg=#073642
 
 " easymotion/vim-easymotion config
 let g:EasyMotion_do_mapping = 0
