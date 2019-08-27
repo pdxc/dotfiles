@@ -129,12 +129,13 @@ set fillchars+=vert:\ ,
 set fillchars=fold:\ ,
 set fillchars+=diff:\ ,
 " Fix highlighting of left cols
-highlight LineNr     guibg=#073642
-highlight FoldColumn guibg=#073642
-highlight Folded     guibg=#073642
+highlight LineNr      guibg=#073642
+highlight FoldColumn  guibg=#073642
+highlight Folded      guibg=#073642
+highlight EndOfBuffer guifg=#002b36
 " Improve diff highlighting
 highlight DiffAdd    guibg=#1B412B guifg=NONE
-highlight DiffChange guibg=#52561D guifg=NONE
+highlight DiffChange guibg=#4D521E guifg=NONE
 highlight DiffDelete guibg=#582E33 guifg=NONE
 highlight DiffText   guibg=#083E55 guifg=NONE
 
@@ -148,11 +149,11 @@ let g:better_whitespace_filetypes_blacklist=['diff', 'gitcommit', 'unite', 'qf',
 let g:miniBufExplSplitBelow = 0
 let g:miniBufExplBuffersNeeded = 1
 hi MBENormal               guifg=#586e75 guibg=#002b36
-hi MBEChanged              guifg=#ffffff guibg=#cb4b16
-hi MBEVisibleNormal        guifg=#93a1a1 guibg=#002b36
-hi MBEVisibleChanged       guifg=#ffffff guibg=#b58900
-hi MBEVisibleActiveNormal  guifg=#268bd2 guibg=#002b36
-hi MBEVisibleActiveChanged guifg=#b58900 guibg=#002b36
+hi MBEChanged              guifg=#dc322f guibg=#002b36
+hi MBEVisibleNormal        guifg=#268bd2 guibg=#002b36
+hi MBEVisibleChanged       guifg=#b58900 guibg=#002b36
+hi MBEVisibleActiveNormal  guifg=#002b36 guibg=#268bd2
+hi MBEVisibleActiveChanged guifg=#002b36 guibg=#b58900
 
 " vim-airline/vim-airline config
 let g:airline_powerline_fonts = 1
@@ -208,6 +209,7 @@ let g:fzf_action = {
   \ 'ctrl-v': 'vsplit' }
 nnoremap <Leader>s :Ag<Space>
 vnoremap <Leader>s y:Ag <C-R>"<CR>
+hi QuickFixLine guifg=#002b36 guibg=#268bd2
 
 " pangloss/vim-javascript config
 " Enable concealing within vim
