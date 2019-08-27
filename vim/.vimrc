@@ -138,11 +138,13 @@ highlight DiffAdd    guibg=#1B412B guifg=NONE
 highlight DiffChange guibg=#4D521E guifg=NONE
 highlight DiffDelete guibg=#582E33 guifg=NONE
 highlight DiffText   guibg=#083E55 guifg=NONE
+" Hide ~s on lines below EOF
+highlight EndOfBuffer guifg=#002b36
 
 " ntpeters/vim-better-whitespace config
 let g:strip_whitespace_on_save=1
 let g:strip_whitespace_confirm=0
-let g:better_whitespace_guicolor='#073642'
+let g:better_whitespace_guicolor='#4D521E'
 let g:better_whitespace_filetypes_blacklist=['diff', 'gitcommit', 'unite', 'qf', 'help', 'markdown', 'vim']
 
 " fholgado/minibufexpl.vim config
