@@ -175,7 +175,7 @@ autocmd VimEnter * RainbowParentheses
 highlight SearchCurrent guifg=#002b36 guibg=#268bd2
 
 " airblade/vim-gitgutter config
-let g:gitgutter_grep='ag'
+let g:gitgutter_grep='rg'
 let g:gitgutter_max_signs = 1000
 nmap [h <Plug>GitGutterPrevHunk
 nmap ]h <Plug>GitGutterNextHunk
@@ -209,8 +209,9 @@ let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-x': 'split',
   \ 'ctrl-v': 'vsplit' }
-nnoremap <Leader>s :Ag<Space>
-vnoremap <Leader>s y:Ag <C-R>"<CR>
+nnoremap <Leader>s :Rg<Space>
+vnoremap <Leader>s y:Rg <C-R>"<CR>
+nnoremap <Leader>t :Files<CR>
 hi QuickFixLine guifg=#002b36 guibg=#268bd2
 
 " pangloss/vim-javascript config

@@ -7,13 +7,7 @@ alias vrc="vim ~/.vimrc"
 alias zrc="vim ~/.zshrc"
 alias trc="vim ~/.tmux.conf"
 
-# Always ls after cd
-c() {
-	cd $1 && ls -lah
-}
-alias cd=c
-
-export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 alias fzf="fzf -m --bind ctrl-a:toggle-all"
 alias pe=path-extractor
 

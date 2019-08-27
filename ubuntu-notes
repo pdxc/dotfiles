@@ -52,8 +52,12 @@ apt-get install -y nodejs
 apt-get install -y npm
 # /node & npm
 
-# ag (the_silver_surfer)
-apt-get install silversearcher-ag
+# rg (ripgrep)
+mkdir -p ~/ripgrep
+cd ~/ripgrep
+curl -LO https://github.com/BurntSushi/ripgrep/releases/download/11.0.2/ripgrep_11.0.2_amd64.deb
+sudo dpkg -i ~/ripgrep/ripgrep_11.0.2_amd64.deb
+popd
 
 # watchman
 apt-get install -y libssl-dev autoconf automake libtool pkg-config
