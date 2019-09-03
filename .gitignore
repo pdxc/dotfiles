@@ -1,5 +1,4 @@
 secrets
 *.ignore*
 *.swp
-*.vim
 .DS_Store
