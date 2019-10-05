@@ -45,8 +45,10 @@ autocmd VimEnter * execute "normal! zr"
 " Maintain undo history between sessions
 " If persistent undo isn't working it might be because ~/.vim/undo hasn't been
 " created yet
-set undofile
-set undodir=~/.vim/undo
+if has("persistent_undo")
+  set undodir=~/.vim/undo
+  set undofile
+endif
 " Put swp files in their own directory
 set directory=$HOME/.vim/swp//
 
