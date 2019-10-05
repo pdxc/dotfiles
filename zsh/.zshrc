@@ -12,10 +12,6 @@ for f in ~/.zsh/aliases/*; do
   source $f
 done
 
-# nvm
-export NVM_DIR="$HOME/.nvm"
-. "/usr/local/opt/nvm/nvm.sh"
-
 # go
 export GOPATH=$HOME/go
 export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
