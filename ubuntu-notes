@@ -208,3 +208,6 @@ sudo install minikube /usr/local/bin/
 rm minikube
 minikube config set vm-driver kvm2
 sudo apt-get install libvirt-bin
+
+# gparted
+sudo apt-get install gparted
