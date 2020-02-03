@@ -105,6 +105,7 @@ Plug 'joereynolds/vim-minisnip'
 
 " Git
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
 Plug 'junegunn/gv.vim'
 
 " Sessions
