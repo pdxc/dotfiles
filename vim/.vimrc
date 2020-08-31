@@ -196,6 +196,15 @@ highlight GitGutterChange       guifg=#b58900 guibg=#073642
 highlight GitGutterDelete       guifg=#dc322f guibg=#073642
 highlight GitGutterChangeDelete guifg=#cb4b16 guibg=#073642
 
+" neoclide/coc.nvim config
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gt <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+nmap <silent> gq <Plug>(coc-rename)
+nmap <silent> gn <Plug>(coc-diagnostic-next)
+nmap <silent> gp <Plug>(coc-diagnostic-prev)
+
 " easymotion/vim-easymotion config
 let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_smartcase = 1
