@@ -7,7 +7,8 @@ alias vrc="vim ~/.vimrc"
 alias zrc="vim ~/.zshrc"
 alias trc="vim ~/.tmux.conf"
 
-export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
+export FZF_CTRL_R_OPTS="--preview 'echo {} |sed -e \"s/^ *\([0-9]*\) *//\" -e \"s/^\\(.\\{,\$COLUMNS\\}\\).*$/\\1/\"; echo {} |sed -e \"s/^ *[0-9]* *//\" -e \"s/^.\\{,\$COLUMNS\\}//g\" -e \"s/.\\{1,\$((COLUMNS-2))\\}/⏎ &\\n/g\"' --preview-window down:5 --bind ?:toggle-preview --bind [:preview-down --bind ]:preview-up"
 alias fzf="fzf -m --bind ctrl-a:toggle-all"
 alias pe=path-extractor
 
