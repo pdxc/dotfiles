@@ -40,7 +40,7 @@ set viminfo='100,<1000,s100,h
 
 " Open all folds by default (some files have a ton of folds and are impossible
 " to read without opening all folds with zr
-autocmd VimEnter * execute "normal! zr"
+"autocmd WinEnter,BufEnter * execute "normal! zr"
 
 " Maintain undo history between sessions
 " If persistent undo isn't working it might be because ~/.vim/undo hasn't been
