@@ -2,6 +2,7 @@
 
 alias aliases="vim ~/.zsh/aliases"
 alias secrets="vim ~/.zsh/secrets"
+alias snippets="vim ~/.vim/minisnip"
 
 alias vrc="vim ~/.vimrc"
 alias zrc="vim ~/.zshrc"
