@@ -100,6 +100,7 @@ source $ZSH/oh-my-zsh.sh
 # zsh-autosuggestions
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=4"
 bindkey '^n' autosuggest-accept
+bindkey '^p' history-beginning-search-backward
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -128,7 +129,9 @@ bindkey '^n' autosuggest-accept
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# yarn
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
