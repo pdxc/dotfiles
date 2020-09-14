@@ -38,6 +38,9 @@ set lazyredraw
 " Solve issue with yanking not working for more than ~50 lines
 set viminfo='100,<1000,s100,h
 
+" Highlight search matches
+set hlsearch
+
 " Open all folds by default (some files have a ton of folds and are impossible
 " to read without opening all folds with zr
 "autocmd WinEnter,BufEnter * execute "normal! zr"
@@ -96,7 +99,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 Plug 'kshenoy/vim-signature'
 
-" Language server and autocomplete
+" Language servers and autocomplete
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 
 " Navigation
@@ -149,6 +152,8 @@ highlight DiffDelete guibg=#582E33 guifg=NONE
 highlight DiffText   guibg=#083E55 guifg=NONE
 " Hide ~s on lines below EOF
 highlight EndOfBuffer guifg=#002b36
+" set cursorline
+" hi CursorLine gui=underline cterm=underline ctermbg=NONE ctermfg=NONE
 
 " ntpeters/vim-better-whitespace config
 let g:strip_whitespace_on_save=1
@@ -186,8 +191,12 @@ highlight SearchCurrent guifg=#002b36 guibg=#268bd2
 " airblade/vim-gitgutter config
 let g:gitgutter_grep='rg'
 let g:gitgutter_max_signs = 1000
-nmap [h <Plug>GitGutterPrevHunk
-nmap ]h <Plug>GitGutterNextHunk
+"autocmd WinEnter,BufEnter * execute "GitGutterAll"
+"autocmd FocusGained,ShellCmdPost * call gitgutter#all(1)
+" set updatetime=100
+nnoremap <Leader>h :GitGutterAll<CR>
+nmap [h <Plug>(GitGutterPrevHunk)
+nmap ]h <Plug>(GitGutterNextHunk)
 " Fixes issue where signs are slow to update
 set updatetime=100
 highlight SignColumn            guibg=#073642
@@ -230,6 +239,9 @@ let g:fzf_action = {
 nnoremap <Leader>s :Rg<Space>
 vnoremap <Leader>s y:Rg <C-R>"<CR>
 nnoremap <Leader>t :Files<CR>
+" vnoremap <Leader>t y:Files<CR><C-R>"<CR>
+nnoremap <Leader>b :Buffers<CR>
+" vnoremap <Leader>b y:Buffers<CR><C-R>"<CR>
 hi QuickFixLine guifg=#002b36 guibg=#268bd2
 
 " pangloss/vim-javascript config
