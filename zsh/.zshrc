@@ -23,7 +23,7 @@ alias tmux="tmux -2"
 # Set default editor to Vim
 export EDITOR="vim"
 function e() {
-  echo $@ && vim -p $@
+  echo $@ && vim $@
 }
 alias v=e
 
@@ -96,6 +96,9 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+
+# # vi mode on
+# bindkey -v
 
 # zsh-autosuggestions
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=4"
